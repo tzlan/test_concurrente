@@ -6,7 +6,7 @@
 
 
 //FICHIER PRODUIT = INVENTAIRE
-
+#define LEN = 20; 
 typedef struct _product_data {
 char name[LEN]; //Nom du produit
 unsigned int total; //contient la somme des ventes réalisées sur le produit 
@@ -45,13 +45,36 @@ pthread_t create_thread(void * (*start_routine)(void *), void * arg)
 
 
 
-
+/*
 int main(int argc, char**argv){
-    nbPd = atoi(argv[1]);
+    /*nbPd = atoi(argv[1]);
     int nbLecteur= atoi(argv[2]);
     int pathFileProduct = atoi(argv[3]);
     int nbCourse = atoi(argv[4]);
     fv = fopen("ventes.txt",r);
+
+
+}*/
+
+int main(int argc, char *argv[])
+{
+    FILE* fichier = NULL;
+    int caractereActuel = 0;
+ 
+    fichier = fopen("vente.txt", "r");
+ 
+    if (fichier != NULL)
+    {
+        // Boucle de lecture des caractères un à un
+        do
+        {
+            caractereActuel = fgetc(fichier); // On lit le caractère
+            printf("%c", caractereActuel); // On l'affiche
+        } while (caractereActuel != EOF); // On continue tant que fgetc n'a pas retourné EOF (fin de fichier)
+    
+        fclose(fichier);
+    }
+ 
     return 0;
 }
 

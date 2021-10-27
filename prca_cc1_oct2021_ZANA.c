@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h> 
+#include <semaphore.h>
 
 
-
-
+//FICHIER PRODUIT = INVENTAIRE
 
 typedef struct _product_data {
 char name[LEN]; //Nom du produit
